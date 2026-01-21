@@ -1,0 +1,27 @@
+1) skip
+
+2) *[true -> skip]
+
+3) i:integer;sum,avg,(i:1...100)tab(i):real;read(100,tab);i:=1;sum:=0;
+   *[i<=100 -> sum+=tab(i);i++]
+    avg := sum/100;
+
+4) i:integer;(i:1...100)tab(i):real;present:bool;present:=false;
+  *[(i:1...100)tab(i) != key(i)+1 ->[tab(i) == key -> present:=true | tab(i) != key -> skip];tab(i):=key+1]
+
+5) i,j,N:integer;i:=1;j:=N;
+  *[i<j -> (tab(i),tab(j):=tab(j),tab(i));i:=i+1;j:=j-1]
+
+7) a,b,c,delta:real;[delta:=b*b-4*a*c;[delta<0->stop; | delta >= 0 -> skip];[Procx1::x1:=(-b-sqrt(delta))/(2*a) || Procx2::x2:=(-b+sqrt(delta))/(2*a)]]
+
+8) i,n:integer;n:=5;i:=1;flag:bool;flag:=false;
+   *[i<n/2 -> [[n mod i = 0 -> flag := true;i:=i+1 | n mod i != 0 -> i:i+1]]]
+
+10) a,b,c,i:integer;a:=0;b:=1;i:=3;
+    *[i<=n -> c := c a + b; a:=b;b:=c;i++]
+
+9)
+  i,sil:integer;i:=1;sil:=1;
+  *[i<=n -> sil:=sil*i;i:=i+1]
+
+6) *[(i:1...99) tab(i+1)> tab(i) -> (tab(i),tab(i+1):=tab(i+1),tab(i))
